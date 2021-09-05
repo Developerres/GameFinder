@@ -151,9 +151,15 @@
 }
 
 .favoriteGames img {
-  border-radius: 50%;
+  border-radius: 1em;
   width: 50px;
   height: 50px;
+  border: 1px solid var(--secondary);
+}
+
+.favoriteGames img:hover,
+a.selected .favoriteGames img {
+  box-shadow: 0px 0px 8px 4px var(--red);
 }
 
 /*SEARCH*/
@@ -287,7 +293,7 @@
 
 .gameContent {
   display: grid;
-  grid-template-columns: 0.6fr 0.4fr;
+  grid-template-columns: 0.7fr 0.3fr;
   grid-template-rows: 1fr;
   gap: 1em 1em;
 }
@@ -306,4 +312,54 @@
 
 .flex {
   display: flex;
+}
+
+.metacriticLabel {
+  border: 0.1em solid var(--red);
+  border-radius: 0.4em;
+  padding: 0.7em;
+  color: var(--red);
+  margin: 0 0.4em;
+}
+
+.metacritic {
+  margin-left: 1.5em;
+}
+
+.description p {
+  margin: 1em 0;
+}
+
+.gameInfoSidebar img {
+  width: 100%;
+}
+
+.gameInfoSidebar div {
+  margin: 1em 0;
+}
+
+.addToFavorite {
+  display: flex;
+}
+
+.addToFavorite button {
+  background-color: var(--primary);
+  border: 1px solid var(--white);
+  border-radius: 0.4em;
+  color: var(--white);
+  padding: 0.8em;
+  width: 100%;
+  font-size: 1.6em;
+}
+
+.addToFavorite button:hover {
+  background-color: var(--white);
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.addToFavorite .deleteFav {
+  background-color: var(--secondary);
+  color: var(--grey);
+  border-color: var(--primary);
 }

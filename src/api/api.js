@@ -25,8 +25,9 @@ export const rawgAPI = {
     try {
       const genresSort = genres ? `&genres=${genres}` : "";
       const orderingSort = ordering ? `&ordering=${ordering}` : "";
+
       const response = await axios.get(
-        `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40${orderingSort}${genresSort}`
+        `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40${orderingSort}${genresSort}&dates=2020-12-01,2021-12-31`
       );
       console.log(response);
       return response;

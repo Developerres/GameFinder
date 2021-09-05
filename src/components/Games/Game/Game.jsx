@@ -2,22 +2,26 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { rawgAPI } from "../../../api/api";
-import { gameName, incrementByAmount } from "../../../app/favoriteSlice";
+import {
+  deleteFromFavorite,
+  incrementByAmount,
+} from "../../../app/favoriteSlice";
 import pc from "./../../../assets/image/pc.svg";
 import playstation from "./../../../assets/image/playstation.svg";
 import xbox from "./../../../assets/image/xbox.svg";
 import nintendo from "./../../../assets/image/nintendo.svg";
 import mac from "./../../../assets/image/mac.svg";
 import linux from "./../../../assets/image/linux.svg";
+import android from "./../../../assets/image/android.svg";
 import Gallery from "react-grid-gallery";
 
 const Game = (props) => {
-  const currentGameName = useSelector(gameName);
   const dispatch = useDispatch();
 
   console.log("Props>>", props);
   const [gameInfo, setGameInfo] = useState({
     name: "",
+    slug: "",
     description: "",
     metacritic: "",
     released: "",
@@ -34,6 +38,7 @@ const Game = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     let gameId = props.match.params.gameId || "1";
+    console.log("match.params", props.match.params);
     const fetchGamesInfo = async () => {
       const response = await rawgAPI.getGameInfoAPI(gameId);
       if (response.data) setGameInfo(response.data);
@@ -53,10 +58,9 @@ const Game = (props) => {
     src: `${s.image}`,
     thumbnail: `${s.image}`,
     caption: `${gameInfo.name} - ${gameInfo.id}`,
+    // thumbnailWidth: 200,
+    // thumbnailHeight: 112,
   }));
-
-  const platforms = gameInfo.parent_platforms.map((p) => p.platform.slug);
-  console.log(platforms);
 
   const images = {
     pc,
@@ -65,7 +69,12 @@ const Game = (props) => {
     nintendo,
     mac,
     linux,
+    android,
   };
+
+  const games = useSelector((state) => state.favorite.games);
+  const isFavorite = games.find((el) => el.gameId === gameInfo.id);
+
   function getImageByKey(key) {
     return images[key];
   }
@@ -95,60 +104,77 @@ const Game = (props) => {
                   />
                 ))}
               </div>
+              <div className="metacritic">
+                Metacritic:
+                <span className="metacriticLabel">{gameInfo.metacritic}</span>
+              </div>
             </div>
             <div className="pageTitle">
               {gameInfo.name}
               <span className="titleDot">.</span>
             </div>
-            <div>
-              <div>ID: {gameInfo.id}</div>
-              <button
-                aria-label="Increment amount value"
-                onClick={() =>
-                  dispatch(
-                    incrementByAmount({
-                      gameId: gameInfo.id,
-                      gameName: gameInfo.name,
-                      metacritic: Number(gameInfo.metacritic),
-                      released: gameInfo.released,
-                      background_image: gameInfo.background_image,
-                      parent_platforms: gameInfo.parent_platforms,
-                      genres: gameInfo.genres,
-                      tags: gameInfo.tags,
-                      description_raw: gameInfo.description_raw,
-                    })
-                  )
-                }
-              >
-                Add to Favorite
-              </button>
-              <span>{currentGameName}</span>
-            </div>
-            <div>
-              <p>Metacritic: {gameInfo.metacritic}</p>
-              <p>Released: {gameInfo.released}</p>
+
+            <div className="description">
               <p>
-                <img
-                  src={gameInfo.background_image}
-                  alt={gameInfo.name}
-                  width="120px"
-                />
+                <strong>Description: </strong>
+                {gameInfo.description_raw}
               </p>
-              <div width="50px">{gameInfo.dominant_color}</div>
-              <p>Platforms: {gameInfo.parent_platforms.length}</p>
-              <p>
-                <strong> Genres:</strong>{" "}
-                {gameInfo.genres.map((g) => g.name + ", ")}
-              </p>
-              <p>
-                <strong>Tags:</strong> {gameInfo.tags.map((t) => t.name + ", ")}
-              </p>
-              <p>Description_raw: {gameInfo.description_raw}</p>
             </div>
           </div>
-          <div className="gallery">
-            <Gallery images={screenshots} />
+          <div className="gameInfoSidebar">
+            <div className="addToFavorite">
+              {isFavorite ? (
+                <button
+                  className="deleteFav"
+                  aria-label="Delete from Favorite"
+                  onClick={() =>
+                    dispatch(
+                      deleteFromFavorite({
+                        gameId: gameInfo.id,
+                      })
+                    )
+                  }
+                >
+                  Delete from Favorite
+                </button>
+              ) : (
+                <button
+                  aria-label="Add to Favorite"
+                  onClick={() =>
+                    dispatch(
+                      incrementByAmount({
+                        gameId: gameInfo.id,
+                        name: gameInfo.name,
+                        slug: gameInfo.slug,
+                        metacritic: Number(gameInfo.metacritic),
+                        released: gameInfo.released,
+                        background_image: gameInfo.background_image,
+                        parent_platforms: gameInfo.parent_platforms,
+                        genres: gameInfo.genres,
+                        tags: gameInfo.tags,
+                        description_raw: gameInfo.description_raw,
+                      })
+                    )
+                  }
+                >
+                  Add to Favorite
+                </button>
+              )}
+            </div>
+            <div>
+              <img src={gameInfo.background_image} alt={gameInfo.name} />
+            </div>
+            <div>
+              <strong>Genres: </strong>
+              {gameInfo.genres.map((g) => g.name + "   ")}
+            </div>
+            <div>
+              <strong>Tags:</strong> {gameInfo.tags.map((t) => t.name + "  ")}
+            </div>
           </div>
+        </div>
+        <div>
+          <Gallery images={screenshots} />
         </div>
       </div>
     </div>
