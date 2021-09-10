@@ -218,7 +218,7 @@ a.selected .favoriteGames img {
   display: none;
   position: absolute;
   top: 0;
-  right: 0;
+  right: -1.8em;
   width: var(--btn-width);
   background: var(--red);
   border-radius: 0 var(--rad) var(--rad) 0;
@@ -226,17 +226,17 @@ a.selected .favoriteGames img {
 
 .search input:not(:-moz-placeholder-shown) {
   border-radius: var(--rad) 0 0 var(--rad);
-  width: calc(100% - var(--btn-width) * 2);
+  width: calc(100% - var(--btn-width));
 }
 
 .search input:not(:-ms-input-placeholder) {
   border-radius: var(--rad) 0 0 var(--rad);
-  width: calc(100% - var(--btn-width) * 2);
+  width: calc(100% - var(--btn-width));
 }
 
 .search input:not(:placeholder-shown) {
   border-radius: var(--rad) 0 0 var(--rad);
-  width: calc(100% - var(--btn-width) * 2);
+  width: calc(100% - var(--btn-width));
 }
 .search input:not(:-moz-placeholder-shown) + button {
   display: block;
@@ -362,4 +362,24 @@ a.selected .favoriteGames img {
   background-color: var(--secondary);
   color: var(--grey);
   border-color: var(--primary);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination a {
+  border: 1px solid var(--secondary);
+  border-radius: 0.4em;
+  background-color: var(--primary);
+  color: var(--grey);
+  padding: 1em;
+  margin: 0.6em;
+  min-width: 1em;
+  text-align: center;
+}
+.pagination a.selected,
+.pagination a:hover {
+  border: 1px solid var(--red);
 }

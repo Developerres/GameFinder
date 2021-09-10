@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import favoriteReducer from "./favoriteSlice.js";
-import testReducer from "./testSlice.js";
+import searchReducer from "./searchSlice.js";
 
 export default configureStore({
   reducer: {
     favorite: favoriteReducer,
-    test: testReducer,
+    search: searchReducer,
   },
 });

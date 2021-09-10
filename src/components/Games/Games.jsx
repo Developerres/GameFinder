@@ -5,8 +5,9 @@ import nintendo from "./../../assets/image/nintendo.svg";
 import mac from "./../../assets/image/mac.svg";
 import linux from "./../../assets/image/linux.svg";
 import { NavLink } from "react-router-dom";
+import Pagination from "../Common/Pagination/Pagination";
 
-const Games = ({ games }) => {
+const Games = ({ games, pagesCount, currentPage }) => {
   return (
     <div className="gameCards">
       {games.map((data) => (

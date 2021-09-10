@@ -18,7 +18,7 @@ import Gallery from "react-grid-gallery";
 const Game = (props) => {
   const dispatch = useDispatch();
 
-  console.log("Props>>", props);
+  console.log("Props from Game>>", props);
   const [gameInfo, setGameInfo] = useState({
     name: "",
     slug: "",

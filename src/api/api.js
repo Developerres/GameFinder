@@ -12,7 +12,7 @@ export const rawgAPI = {
   async getGenresAPI() {
     try {
       const response = await axios.get(
-        `https://api.rawg.io/api/genres?key=${API_KEY}`
+        `https://api.rawg.io/api/genres?page_size=40&key=${API_KEY}`
       );
       console.log(response);
       return response;
@@ -21,13 +21,13 @@ export const rawgAPI = {
     }
   },
 
-  async getGameListAPI(genres, ordering) {
+  async getGameListAPI(genres, ordering, page = 1) {
     try {
       const genresSort = genres ? `&genres=${genres}` : "";
       const orderingSort = ordering ? `&ordering=${ordering}` : "";
 
       const response = await axios.get(
-        `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40${orderingSort}${genresSort}&dates=2020-12-01,2021-12-31`
+        `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40${orderingSort}${genresSort}&dates=2020-12-01,2021-12-31&page=${page}`
       );
       console.log(response);
       return response;
@@ -52,6 +52,18 @@ export const rawgAPI = {
     try {
       const response = await axios.get(
         `https://api.rawg.io/api/games/${gameId}/screenshots?key=${API_KEY}`
+      );
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+  async getSearch(term) {
+    try {
+      const response = await axios.get(
+        `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&search=${term}&search_precise=false`
       );
       console.log(response);
       return response;
