@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { rawgAPI } from "./api/api";
 import "./App.css";
 
 import Search from "./components/Search/Search";

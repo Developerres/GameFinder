@@ -16,14 +16,24 @@ export const slice = createSlice({
   },
   reducers: {
     incrementByAmount: (state, action) => {
-      // state = action.payload;
       const isFavorite = state.games.find(
         (el) => el.gameId === action.payload.gameId
       );
       if (isFavorite) return;
       state.games = [...state.games, action.payload];
-      console.log("action.payload >>>", action.payload);
-      console.log("state.games >>>", state.games);
+      // Add to LocalStorage
+      const favArray = JSON.parse(localStorage.getItem("favorite"));
+      console.log("FavARRAY", favArray);
+      const newFavArray = !favArray
+        ? [action.payload]
+        : [...favArray, action.payload];
+      console.log("NewFavARRAY", newFavArray);
+      localStorage.setItem("favorite", JSON.stringify(newFavArray));
+      console.log(
+        "Some FAV from LocalStorage >>> ",
+        JSON.parse(localStorage.getItem("favorite"))
+      );
+      // localStorage.clear();
     },
     deleteFromFavorite: (state, action) => {
       console.log("state.games >>>", state.games);
@@ -32,6 +42,8 @@ export const slice = createSlice({
       );
       console.log("Deleted array>> ", deleted);
       state.games = deleted;
+      localStorage.removeItem("favorite");
+      localStorage.setItem("favorite", JSON.stringify(deleted));
     },
   },
 });

@@ -16,13 +16,14 @@ const Pagination = ({ currentPage, path, pagesCount, ...props }) => {
   const uniqPagesArray = (el) =>
     [...new Set(el)].filter((el) => el > 0 && el <= actualPagesCount);
 
-  console.log("pagesArrayOrdered", pagesArrayOrdered);
-  console.log("path", path);
-
   return (
     <div className="pagination">
       {uniqPagesArray(pagesArrayOrdered).map((el) => (
-        <NavLink to={"/" + path + "/" + el + "/"} activeClassName="selected">
+        <NavLink
+          to={"/" + path + "/" + el + "/"}
+          activeClassName="selected"
+          key={el.toString()}
+        >
           {el}
         </NavLink>
       ))}

@@ -1,12 +1,19 @@
-import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const FavoriteSidebar = () => {
-  const games = useSelector((state) => state.favorite.games);
+  const favoriteGames = JSON.parse(localStorage.getItem("favorite"));
+
+  console.log("FavGames from sideb>>>", favoriteGames);
+
+  if (!favoriteGames) return;
   return (
     <div>
-      {games.map((el) => (
-        <NavLink to={`/game/${el.slug}`} activeClassName="selected">
+      {favoriteGames.map((el) => (
+        <NavLink
+          to={`/game/${el.slug}`}
+          activeClassName="selected"
+          key={el.gameId}
+        >
           <div className="favoriteGames">
             <img src={el.background_image} alt={el.name} title={el.name} />
           </div>

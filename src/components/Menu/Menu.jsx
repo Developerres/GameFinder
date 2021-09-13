@@ -53,7 +53,11 @@ const Menu = (props) => {
       </div>
       <div className="genresList">
         {genres.map((data) => (
-          <NavLink to={`/genre/${data.slug}`} activeClassName="selected">
+          <NavLink
+            to={`/genre/${data.slug}`}
+            activeClassName="selected"
+            key={data.id}
+          >
             <Genres
               key={data.id}
               name={data.name}

@@ -5,13 +5,16 @@ import nintendo from "./../../assets/image/nintendo.svg";
 import mac from "./../../assets/image/mac.svg";
 import linux from "./../../assets/image/linux.svg";
 import { NavLink } from "react-router-dom";
-import Pagination from "../Common/Pagination/Pagination";
 
 const Games = ({ games, pagesCount, currentPage }) => {
   return (
     <div className="gameCards">
       {games.map((data) => (
-        <NavLink to={`/game/${data.slug}`} activeClassName="selected">
+        <NavLink
+          to={`/game/${data.slug}`}
+          activeClassName="selected"
+          key={data.id}
+        >
           <div className="gameCard">
             <div
               className="gameCardImage"
@@ -34,7 +37,10 @@ const Games = ({ games, pagesCount, currentPage }) => {
             </div>
             <div className="gameTitle">{data.name}</div>
             <div className="gameCardGenre">
-              {data.genres.map((g) => g.name).join(", ")}
+              {data.genres.map((g) => (
+                <span key={g.id}> {g.name} </span>
+              ))}
+              {/* {data.genres.map((g) => g.name).join(", ")} */}
             </div>
           </div>
         </NavLink>

@@ -58,8 +58,8 @@ const Game = (props) => {
     src: `${s.image}`,
     thumbnail: `${s.image}`,
     caption: `${gameInfo.name} - ${gameInfo.id}`,
-    // thumbnailWidth: 200,
-    // thumbnailHeight: 112,
+    thumbnailWidth: 200,
+    thumbnailHeight: 112,
   }));
 
   const images = {
@@ -98,7 +98,7 @@ const Game = (props) => {
               <div className="gamePlatforms">
                 {gameInfo.parent_platforms.map((p) => (
                   <img
-                    key={p}
+                    key={p.id}
                     src={getImageByKey(p.platform.slug)}
                     alt={p.platform.name}
                   />

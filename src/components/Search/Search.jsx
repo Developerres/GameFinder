@@ -13,7 +13,6 @@ const Search = (props) => {
     <div className="search">
       <div>
         <form onSubmit={(e) => e.preventDefault()} role="search">
-          <label for="search">Search for stuff</label>
           <input
             id="search"
             type="search"
