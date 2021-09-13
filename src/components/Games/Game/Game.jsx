@@ -105,8 +105,16 @@ const Game = (props) => {
                 ))}
               </div>
               <div className="metacritic">
-                Metacritic:
-                <span className="metacriticLabel">{gameInfo.metacritic}</span>
+                {gameInfo.metacritic ? (
+                  <div>
+                    Metacritic:
+                    <span className="metacriticLabel">
+                      {gameInfo.metacritic}
+                    </span>
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
             <div className="pageTitle">

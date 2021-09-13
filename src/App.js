@@ -12,6 +12,7 @@ import GenreGameListwithRouter from "./components/Home/GenreGameList/GenreGameLi
 import LastGames from "./components/LastGames/LastGames";
 import FavoriteSidebar from "./components/FavoriteSidebar/FavoriteSidebar";
 import HomewithRouter from "./components/Home/Home";
+import SearchResult from "./components/Search/SearchResult";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             render={() => (
               <HomewithRouter
                 title="trending games"
+                search="false"
                 key={window.location.pathname}
               />
             )}
@@ -48,6 +50,7 @@ function App() {
               <GenreGameListwithRouter key={window.location.pathname} />
             )}
           />
+          <Route path="/searchresult" render={() => <SearchResult />} />
         </div>
 
         <div className="favorite">

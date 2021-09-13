@@ -5,27 +5,16 @@ import Games from "../Games/Games";
 import gamePerPage from "../Common/Const/const";
 import Pagination from "../Common/Pagination/Pagination";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { searchGame } from "../../app/searchSlice";
 
-const Home = ({ ordering, title, ...props }) => {
+const Home = ({ ordering, title, search, ...props }) => {
+  const dispatch = useDispatch();
   const [games, setGameList] = useState([]);
   const [gamesCount, setGamesCount] = useState("0");
   const pageId = props.match.params.pageId || "1";
   console.log("PageID>>", pageId);
   const pagesCount = Math.ceil(gamesCount / gamePerPage);
-
-  const searchTerm = useSelector((state) => state.search.term);
-
-  useEffect(() => {
-    // if (searchTerm === "" || !searchTerm) return console.log("Nothing");
-    const fetchSearchGame = async () => {
-      const response = await rawgAPI.getSearch(searchTerm.term);
-      if (!response) return;
-      console.log("Some result from serch 2", response.data);
-      setGameList(response.data.results);
-      setGamesCount(response.data.count);
-    };
-    fetchSearchGame();
-  }, [searchTerm]);
 
   useEffect(() => {
     // let genres = props.match.params.genres || "";
@@ -38,9 +27,11 @@ const Home = ({ ordering, title, ...props }) => {
       setGamesCount(response.data.count);
       console.log("RESP of GameList", response.data.results);
       console.log("Count", response.data.count);
+      console.log("First USEEffect");
+      dispatch(searchGame({ term: "" }));
     };
     fetchGames();
-  }, []);
+  }, [dispatch, ordering, pageId]);
 
   return (
     <div>

@@ -183,19 +183,34 @@ a.selected .favoriteGames img {
 }
 
 .search input,
-.search button {
+.search .searchSubmit {
   height: 2em;
   border: 0;
   color: var(--color-dark);
   font-size: 1.8em;
 }
+/* 
+.search input,
+.search button {
+  height: 2em;
+  border: 0;
+  color: var(--color-dark);
+  font-size: 1.8em;
+} */
 
-.search button img {
+.search .searchSubmit img {
   width: 1em;
   position: absolute;
   top: 30%;
   right: 30%;
 }
+/* 
+.search button img {
+  width: 1em;
+  position: absolute;
+  top: 30%;
+  right: 30%;
+} */
 
 .search input[type="search"] {
   outline: 0;
@@ -214,6 +229,16 @@ a.selected .favoriteGames img {
   color: var(--white);
 }
 
+.search .searchSubmit {
+  /* display: none; */
+  position: absolute;
+  top: 0;
+  right: -1.8em;
+  width: var(--btn-width);
+  background: var(--red);
+  border-radius: 0 var(--rad) var(--rad) 0;
+}
+/* 
 .search button {
   display: none;
   position: absolute;
@@ -222,7 +247,7 @@ a.selected .favoriteGames img {
   width: var(--btn-width);
   background: var(--red);
   border-radius: 0 var(--rad) var(--rad) 0;
-}
+} */
 
 .search input:not(:-moz-placeholder-shown) {
   border-radius: var(--rad) 0 0 var(--rad);

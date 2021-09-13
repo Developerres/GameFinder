@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Redirect } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { searchGame } from "../../app/searchSlice";
 import search from "./../../assets/image/icon-search.svg";
@@ -8,6 +7,7 @@ import search from "./../../assets/image/icon-search.svg";
 const Search = (props) => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
+  console.log("ST>>>>>>", searchTerm);
 
   return (
     <div className="search">
@@ -23,15 +23,16 @@ const Search = (props) => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.currentTarget.value)}
           />
-          <button
-            type="submit"
-            aria-label="Search"
+          <NavLink
+            to="/searchresult"
+            className="searchSubmit"
             onClick={() => {
               dispatch(searchGame({ term: searchTerm }));
+              setSearchTerm("");
             }}
           >
             <img src={search} alt="Search" />
-          </button>
+          </NavLink>
         </form>
       </div>
       <div className="searchTitle">
