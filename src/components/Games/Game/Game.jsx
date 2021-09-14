@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { rawgAPI } from "../../../api/api";
-import {
-  deleteFromFavorite,
-  incrementByAmount,
-} from "../../../app/favoriteSlice";
+import { deleteFromFavorite, addToFavorite } from "../../../app/favoriteSlice";
 import pc from "./../../../assets/image/pc.svg";
 import playstation from "./../../../assets/image/playstation.svg";
 import xbox from "./../../../assets/image/xbox.svg";
@@ -18,7 +15,6 @@ import Gallery from "react-grid-gallery";
 const Game = (props) => {
   const dispatch = useDispatch();
 
-  console.log("Props from Game>>", props);
   const [gameInfo, setGameInfo] = useState({
     name: "",
     slug: "",
@@ -38,21 +34,18 @@ const Game = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     let gameId = props.match.params.gameId || "1";
-    console.log("match.params", props.match.params);
     const fetchGamesInfo = async () => {
       const response = await rawgAPI.getGameInfoAPI(gameId);
       if (response.data) setGameInfo(response.data);
-      console.log("RESP", response.data);
 
       // Load screenshots
 
       const responseScreenshots = await rawgAPI.getGameScreenshotsAPI(gameId);
       if (responseScreenshots.data)
         setGameScreenshots(responseScreenshots.data.results);
-      console.log("RESP Screens", responseScreenshots.data.results);
     };
     fetchGamesInfo();
-  }, []);
+  }, [props.match.params.gameId]);
 
   const screenshots = gameScreenshots.map((s) => ({
     src: `${s.image}`,
@@ -150,7 +143,7 @@ const Game = (props) => {
                   aria-label="Add to Favorite"
                   onClick={() =>
                     dispatch(
-                      incrementByAmount({
+                      addToFavorite({
                         gameId: gameInfo.id,
                         name: gameInfo.name,
                         slug: gameInfo.slug,

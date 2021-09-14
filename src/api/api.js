@@ -4,17 +4,14 @@ import axios from "axios";
 const API_KEY = "5e447d077ed04901928670529e053a6d";
 
 const instance = axios.create({
-  withCredentials: true,
   baseURL: `https://api.rawg.io/api/`,
 });
 
 export const rawgAPI = {
   async getGenresAPI() {
     try {
-      const response = await axios.get(
-        `https://api.rawg.io/api/genres?page_size=40&key=${API_KEY}`
-      );
-      console.log(response);
+      const response = await instance.get(`genres?page_size=40&key=${API_KEY}`);
+
       return response;
     } catch (error) {
       console.error(error);
@@ -26,10 +23,10 @@ export const rawgAPI = {
       const genresSort = genres ? `&genres=${genres}` : "";
       const orderingSort = ordering ? `&ordering=${ordering}` : "";
 
-      const response = await axios.get(
-        `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40${orderingSort}${genresSort}&dates=2020-12-01,2021-12-31&page=${page}`
+      const response = await instance.get(
+        `games?key=${API_KEY}&page_size=40${orderingSort}${genresSort}&dates=2020-12-01,2021-12-31&page=${page}`
       );
-      console.log(response);
+
       return response;
     } catch (error) {
       console.error(error);
@@ -38,10 +35,8 @@ export const rawgAPI = {
 
   async getGameInfoAPI(gameId) {
     try {
-      const response = await axios.get(
-        `https://api.rawg.io/api/games/${gameId}?key=${API_KEY}`
-      );
-      console.log(response);
+      const response = await instance.get(`games/${gameId}?key=${API_KEY}`);
+
       return response;
     } catch (error) {
       console.error(error);
@@ -50,10 +45,10 @@ export const rawgAPI = {
 
   async getGameScreenshotsAPI(gameId) {
     try {
-      const response = await axios.get(
-        `https://api.rawg.io/api/games/${gameId}/screenshots?key=${API_KEY}`
+      const response = await instance.get(
+        `games/${gameId}/screenshots?key=${API_KEY}`
       );
-      console.log(response);
+
       return response;
     } catch (error) {
       console.error(error);
@@ -62,10 +57,10 @@ export const rawgAPI = {
 
   async getSearch(term) {
     try {
-      const response = await axios.get(
-        `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&search=${term}&search_precise=false`
+      const response = await instance.get(
+        `games?key=${API_KEY}&page_size=40&search=${term}&search_precise=false`
       );
-      console.log(response);
+
       return response;
     } catch (error) {
       console.error(error);

@@ -1,9 +1,14 @@
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { addToFavorite } from "../../app/favoriteSlice";
 
 const FavoriteSidebar = () => {
-  const favoriteGames = JSON.parse(localStorage.getItem("favorite"));
-
-  console.log("FavGames from sideb>>>", favoriteGames);
+  const dispatch = useDispatch();
+  const favArray = JSON.parse(localStorage.getItem("favorite"));
+  if (favArray && favArray.length !== 0) {
+    favArray.map((el) => dispatch(addToFavorite(el)));
+  }
+  const favoriteGames = useSelector((state) => state.favorite.games);
 
   if (!favoriteGames) return;
   return (

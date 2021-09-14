@@ -8,7 +8,6 @@ export const slice = createSlice({
   reducers: {
     searchGame: (state, action) => {
       state.term = action.payload;
-      console.log("What I'm searched?", state.term);
     },
   },
 });

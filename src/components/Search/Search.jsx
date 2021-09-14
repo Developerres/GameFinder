@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { searchGame } from "../../app/searchSlice";
 import search from "./../../assets/image/icon-search.svg";
@@ -7,7 +7,6 @@ import search from "./../../assets/image/icon-search.svg";
 const Search = (props) => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
-  console.log("ST>>>>>>", searchTerm);
 
   return (
     <div className="search">
