@@ -65,12 +65,12 @@ const Game = (props) => {
     android,
   };
 
-  const games = useSelector((state) => state.favorite.games);
-  const isFavorite = games.find((el) => el.gameId === gameInfo.id);
-
   function getImageByKey(key) {
     return images[key];
   }
+
+  const games = useSelector((state) => state.favorite.games);
+  const isFavorite = games.find((el) => el.gameId === gameInfo.id);
 
   return (
     <div

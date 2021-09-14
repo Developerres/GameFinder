@@ -67,7 +67,7 @@
   border-top-left-radius: 0.6em;
   border-top-right-radius: 0.6em;
 
-  background-repeat: no-repeat;
+  background: no-repeat center center;
   width: 100%;
   background-size: cover;
 }
@@ -125,6 +125,7 @@
 .genreTitle {
   display: flex;
   align-items: center;
+  padding-left: 0.6em;
 }
 
 .search {
@@ -137,6 +138,7 @@
 .searchTitle {
   font-size: 1.4em;
   font-weight: 100;
+  padding-left: 4em;
 }
 
 .pageTitle {
@@ -177,7 +179,6 @@ a.selected .favoriteGames img {
 
 .search form {
   position: relative;
-  width: 30rem;
   background: var(--red);
   border-radius: var(--rad);
 }
@@ -189,14 +190,6 @@ a.selected .favoriteGames img {
   color: var(--color-dark);
   font-size: 1.8em;
 }
-/* 
-.search input,
-.search button {
-  height: 2em;
-  border: 0;
-  color: var(--color-dark);
-  font-size: 1.8em;
-} */
 
 .search .searchSubmit img {
   width: 1em;
@@ -204,13 +197,6 @@ a.selected .favoriteGames img {
   top: 30%;
   right: 30%;
 }
-/* 
-.search button img {
-  width: 1em;
-  position: absolute;
-  top: 30%;
-  right: 30%;
-} */
 
 .search input[type="search"] {
   outline: 0;
@@ -238,16 +224,6 @@ a.selected .favoriteGames img {
   background: var(--red);
   border-radius: 0 var(--rad) var(--rad) 0;
 }
-/* 
-.search button {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: -1.8em;
-  width: var(--btn-width);
-  background: var(--red);
-  border-radius: 0 var(--rad) var(--rad) 0;
-} */
 
 .search input:not(:-moz-placeholder-shown) {
   border-radius: var(--rad) 0 0 var(--rad);

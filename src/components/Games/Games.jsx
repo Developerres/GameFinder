@@ -4,9 +4,24 @@ import xbox from "./../../assets/image/xbox.svg";
 import nintendo from "./../../assets/image/nintendo.svg";
 import mac from "./../../assets/image/mac.svg";
 import linux from "./../../assets/image/linux.svg";
+import android from "./../../assets/image/android.svg";
 import { NavLink } from "react-router-dom";
 
 const Games = ({ games, pagesCount, currentPage }) => {
+  const images = {
+    pc,
+    playstation,
+    xbox,
+    nintendo,
+    mac,
+    linux,
+    android,
+  };
+
+  function getImageByKey(key) {
+    return images[key];
+  }
+
   return (
     <div className="gameCards">
       {games.map((data) => (
@@ -25,12 +40,13 @@ const Games = ({ games, pagesCount, currentPage }) => {
             ></div>
             <div className="gameCardInfo">
               <div className="gamePlatforms">
-                <img src={pc} alt={data.name} />
-                <img src={playstation} alt={data.name} />
-                <img src={xbox} alt={data.name} />
-                <img src={nintendo} alt={data.name} />
-                <img src={mac} alt={data.name} />
-                <img src={linux} alt={data.name} />
+                {data.parent_platforms.map((p) => (
+                  <img
+                    key={p.platform.id}
+                    src={getImageByKey(p.platform.slug)}
+                    alt={p.platform.name}
+                  />
+                ))}
               </div>
 
               <div className="gameRelease">Metacritic: {data.metacritic}</div>
