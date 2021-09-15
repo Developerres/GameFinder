@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 export const slice = createSlice({
   name: "favorite",
   initialState: {
-    value: 12,
     gameName: "",
     metacritic: 0,
     released: "",
