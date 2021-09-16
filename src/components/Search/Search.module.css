@@ -100,3 +100,36 @@
   padding-left: 4em;
   align-self: center;
 }
+
+@media (max-width: 575.98px) {
+  .search {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0.5em;
+  }
+  .search div {
+    width: 90%;
+  }
+  .searchTitle {
+    padding: 0;
+    font-size: 1.1em;
+    text-align: center;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .search {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0.5em;
+  }
+
+  .search form {
+    width: 190px;
+  }
+  .searchTitle {
+    padding: 0;
+    font-size: 1.1em;
+    text-align: center;
+  }
+}

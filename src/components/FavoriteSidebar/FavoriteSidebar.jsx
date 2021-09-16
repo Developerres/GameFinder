@@ -13,7 +13,7 @@ const FavoriteSidebar = () => {
 
   if (!favoriteGames) return;
   return (
-    <div>
+    <>
       {favoriteGames.map((el) => (
         <NavLink
           to={`/game/${el.slug}`}
@@ -25,7 +25,7 @@ const FavoriteSidebar = () => {
           </div>
         </NavLink>
       ))}
-    </div>
+    </>
   );
 };
 

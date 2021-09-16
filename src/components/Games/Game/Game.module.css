@@ -88,3 +88,68 @@
   color: var(--grey);
   border-color: var(--primary);
 }
+
+@media (max-width: 575.98px) {
+  .gameContent {
+    grid-template-columns: 1fr;
+  }
+  .gameContent .pageTitle {
+    font-size: 2em;
+  }
+  .addToFavorite {
+    font-size: 0.6em;
+  }
+
+  .addToFavorite button {
+    margin-right: 1em;
+  }
+
+  .flex {
+    display: grid;
+    justify-items: center;
+  }
+  .whiteLabel,
+  .gamePlatforms,
+  .metacritic {
+    margin: 1em;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .gameContent {
+    grid-template-columns: 1fr;
+  }
+  .gameContent .pageTitle {
+    font-size: 2em;
+  }
+  .addToFavorite {
+    font-size: 0.6em;
+  }
+  .addToFavorite button {
+    margin-right: 1em;
+  }
+
+  .flex {
+    display: grid;
+    justify-items: center;
+  }
+  .whiteLabel,
+  .gamePlatforms,
+  .metacritic {
+    margin: 1em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .gameContent {
+    margin-top: 2em;
+  }
+  .flex {
+    display: grid;
+    justify-items: center;
+  }
+  .whiteLabel,
+  .gamePlatforms,
+  .metacritic {
+    margin: 1em;
+  }
+}

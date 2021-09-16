@@ -1,7 +1,6 @@
 .genreItem {
   margin: 1em 0;
   margin-left: 1em;
-
   border-top-left-radius: 0.6em;
   border-bottom-left-radius: 0.6em;
   display: grid;
@@ -12,6 +11,8 @@
 
 .genreItem:hover {
   background-color: var(--secondary);
+
+  transition: 0.4s;
 }
 
 .genreIcon {
@@ -51,8 +52,33 @@
 
 .mainMenuItems a:hover {
   text-decoration: underline;
+  transition: 0.4s;
 }
 
 .genresList a.selected div {
   background: var(--secondary);
+}
+
+@media (max-width: 575.98px) {
+  .genresList {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .genreIcon {
+    display: none;
+  }
+
+  .genreItem {
+    display: flex;
+    margin: 0.1em;
+  }
+
+  .mainMenuItems {
+    flex-direction: row;
+    margin: 0em;
+    margin-left: 0.8em;
+  }
+  .mainMenuItems a {
+    margin: 0.2em;
+  }
 }
