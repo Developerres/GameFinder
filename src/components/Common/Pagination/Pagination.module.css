@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination a {
+  border: 1px solid var(--secondary);
+  border-radius: 0.4em;
+  background-color: var(--primary);
+  color: var(--grey);
+  padding: 1em;
+  margin: 0.6em;
+  min-width: 1em;
+  text-align: center;
+}
+.pagination a.selected,
+.pagination a:hover {
+  border: 1px solid var(--red);
+}

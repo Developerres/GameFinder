@@ -10,7 +10,10 @@ import nintendo from "./../../../assets/image/nintendo.svg";
 import mac from "./../../../assets/image/mac.svg";
 import linux from "./../../../assets/image/linux.svg";
 import android from "./../../../assets/image/android.svg";
+import ios from "./../../../assets/image/ios.svg";
+import web from "./../../../assets/image/web.svg";
 import Gallery from "react-grid-gallery";
+import s from "./Game.module.css";
 
 const Game = (props) => {
   const dispatch = useDispatch();
@@ -63,6 +66,8 @@ const Game = (props) => {
     mac,
     linux,
     android,
+    ios,
+    web,
   };
 
   function getImageByKey(key) {
@@ -74,7 +79,7 @@ const Game = (props) => {
 
   return (
     <div
-      className="gameCardImage"
+      className={s.gameCardImage}
       style={{
         background: `linear-gradient(0deg, rgba(26,28,34,1) 10%, rgba(26,28,34,0.8) 50%, rgba(26,28,34,0.8) 50%, rgba(26,28,34,1) 90%), url(${gameInfo.background_image})`,
       }}
@@ -84,11 +89,11 @@ const Game = (props) => {
           background: `linear-gradient(90deg, rgba(26,28,34,1) 5%, rgba(26,28,34,0) 50%, rgba(26,28,34,0) 50%, rgba(26,28,34,1) 95%)`,
         }}
       >
-        <div className="gameContent">
+        <div className={s.gameContent}>
           <div>
-            <div className="flex">
-              <div className="whiteLabel">{gameInfo.released}</div>
-              <div className="gamePlatforms">
+            <div className={s.flex}>
+              <div className={s.whiteLabel}>{gameInfo.released}</div>
+              <div className={s.gamePlatforms}>
                 {gameInfo.parent_platforms.map((p) => (
                   <img
                     key={p.id}
@@ -97,11 +102,11 @@ const Game = (props) => {
                   />
                 ))}
               </div>
-              <div className="metacritic">
+              <div className={s.metacritic}>
                 {gameInfo.metacritic ? (
                   <div>
                     Metacritic:
-                    <span className="metacriticLabel">
+                    <span className={s.metacriticLabel}>
                       {gameInfo.metacritic}
                     </span>
                   </div>
@@ -110,23 +115,23 @@ const Game = (props) => {
                 )}
               </div>
             </div>
-            <div className="pageTitle">
+            <div className={s.pageTitle}>
               {gameInfo.name}
-              <span className="titleDot">.</span>
+              <span className={s.titleDot}>.</span>
             </div>
 
-            <div className="description">
+            <div className={s.description}>
               <p>
                 <strong>Description: </strong>
                 {gameInfo.description_raw}
               </p>
             </div>
           </div>
-          <div className="gameInfoSidebar">
-            <div className="addToFavorite">
+          <div className={s.gameInfoSidebar}>
+            <div className={s.addToFavorite}>
               {isFavorite ? (
                 <button
-                  className="deleteFav"
+                  className={s.deleteFav}
                   aria-label="Delete from Favorite"
                   onClick={() =>
                     dispatch(

@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import s from "./Pagination.module.css";
 
 const Pagination = ({ currentPage, path, pagesCount, ...props }) => {
   const actualPagesCount = pagesCount >= 250 ? 250 : pagesCount;
@@ -17,11 +18,11 @@ const Pagination = ({ currentPage, path, pagesCount, ...props }) => {
     [...new Set(el)].filter((el) => el > 0 && el <= actualPagesCount);
 
   return (
-    <div className="pagination">
+    <div className={s.pagination}>
       {uniqPagesArray(pagesArrayOrdered).map((el) => (
         <NavLink
           to={"/" + path + "/" + el + "/"}
-          activeClassName="selected"
+          activeClassName={s.selected}
           key={el.toString()}
         >
           {el}

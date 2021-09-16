@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { rawgAPI } from "./../../api/api";
+import s from "./Menu.module.css";
 
 export const Genres = ({ name, id, games_count, image_background }) => {
   return (
-    <div className="genreItem">
+    <div className={s.genreItem}>
       <div
-        className="genreIcon"
+        className={s.genreIcon}
         style={{
           backgroundImage: `url(${image_background})`,
           backgroundRepeat: "no-repeat",
@@ -16,7 +17,7 @@ export const Genres = ({ name, id, games_count, image_background }) => {
         }}
         alt={"Name:" + name + "- ID: " + id + " - Count: " + games_count}
       ></div>
-      <div className="genreTitle">{name}</div>
+      <div className={s.genreTitle}>{name}</div>
     </div>
   );
 };
@@ -34,28 +35,28 @@ const Menu = (props) => {
 
   return (
     <div>
-      <div className="mainMenuTitle">
+      <div className={s.mainMenuTitle}>
         menu<span className="titleDot">.</span>
       </div>
-      <div className="mainMenuItems">
-        <NavLink exact to="/" activeClassName="selected">
+      <div className={s.mainMenuItems}>
+        <NavLink exact to="/" activeClassName={s.selected}>
           Home
         </NavLink>
-        <NavLink to="/mylibrary" activeClassName="selected">
+        <NavLink to="/mylibrary" activeClassName={s.selected}>
           My Library
         </NavLink>
-        <NavLink to="/lastgames" activeClassName="selected">
+        <NavLink to="/lastgames" activeClassName={s.selected}>
           Last Games
         </NavLink>
       </div>
-      <div className="mainMenuTitle">
+      <div className={s.mainMenuTitle}>
         genres<span className="titleDot">.</span>
       </div>
-      <div className="genresList">
+      <div className={s.genresList}>
         {genres.map((data) => (
           <NavLink
             to={`/genre/${data.slug}`}
-            activeClassName="selected"
+            activeClassName={s.selected}
             key={data.id}
           >
             <Genres

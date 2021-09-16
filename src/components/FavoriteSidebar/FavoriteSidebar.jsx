@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { addToFavorite } from "../../app/favoriteSlice";
+import s from "./FavoriteSidebar.module.css";
 
 const FavoriteSidebar = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const FavoriteSidebar = () => {
           activeClassName="selected"
           key={el.gameId}
         >
-          <div className="favoriteGames">
+          <div className={s.favoriteGames}>
             <img src={el.background_image} alt={el.name} title={el.name} />
           </div>
         </NavLink>

@@ -1,0 +1,90 @@
+.gameCardImage {
+  border-top-left-radius: 0.6em;
+  border-top-right-radius: 0.6em;
+
+  background: no-repeat center center;
+  width: 100%;
+  background-size: cover;
+}
+
+.gameContent {
+  display: grid;
+  grid-template-columns: 0.7fr 0.3fr;
+  grid-template-rows: 1fr;
+  gap: 1em 1em;
+}
+
+.gameContent .pageTitle {
+  font-size: 5em;
+}
+
+.whiteLabel {
+  background-color: #f5f5f5;
+  border-radius: 0.4em;
+  color: var(--secondary);
+  padding: 0 0.5em;
+  margin-right: 1.5em;
+}
+
+.flex {
+  display: flex;
+}
+
+.gamePlatforms img {
+  height: 1em;
+  margin: 0.2em;
+}
+
+.metacritic {
+  margin-left: 1.5em;
+}
+
+.metacriticLabel {
+  border: 0.1em solid var(--red);
+  border-radius: 0.4em;
+  padding: 0.7em;
+  color: var(--red);
+  margin: 0 0.4em;
+}
+
+.titleDot {
+  color: var(--red);
+}
+
+.description p {
+  margin: 1em 0;
+}
+
+.gameInfoSidebar img {
+  width: 100%;
+}
+
+.gameInfoSidebar div {
+  margin: 1em 0;
+}
+
+.addToFavorite {
+  display: flex;
+}
+
+.addToFavorite button {
+  background-color: var(--primary);
+  border: 1px solid var(--white);
+  border-radius: 0.4em;
+  color: var(--white);
+  padding: 0.8em;
+  width: 100%;
+  font-size: 1.6em;
+}
+
+.addToFavorite button:hover {
+  background-color: var(--white);
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.addToFavorite .deleteFav {
+  background-color: var(--secondary);
+  color: var(--grey);
+  border-color: var(--primary);
+}

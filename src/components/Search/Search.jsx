@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { searchGame } from "../../app/searchSlice";
 import search from "./../../assets/image/icon-search.svg";
+import s from "./Search.module.css";
 
 const Search = (props) => {
   const history = useHistory();
@@ -12,7 +13,7 @@ const Search = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div className="search">
+    <div className={s.search}>
       <div>
         <form onSubmit={(e) => e.preventDefault()} role="search">
           <input
@@ -33,7 +34,7 @@ const Search = (props) => {
           />
           <NavLink
             to="/searchresult"
-            className="searchSubmit"
+            className={s.searchSubmit}
             onClick={() => {
               dispatch(searchGame({ term: searchTerm }));
               setSearchTerm("");
@@ -43,7 +44,7 @@ const Search = (props) => {
           </NavLink>
         </form>
       </div>
-      <div className="searchTitle">
+      <div className={s.searchTitle}>
         Easiest way to find your NEXT favorite game
       </div>
     </div>

@@ -1,0 +1,102 @@
+:root {
+  --rad: 0.7rem;
+  --dur: 0.3s;
+  --color-dark: #2f2f2f;
+  --btn-width: 2em;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+
+.search {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  grid-template-rows: 1fr;
+  margin: 3em;
+}
+
+.search form {
+  position: relative;
+  background: var(--red);
+  border-radius: var(--rad);
+}
+
+.search input,
+.search .searchSubmit {
+  height: 2em;
+  border: 0;
+  color: var(--color-dark);
+  font-size: 1.8em;
+}
+
+.search .searchSubmit img {
+  width: 1em;
+  position: absolute;
+  top: 30%;
+  right: 30%;
+}
+
+.search input[type="search"] {
+  outline: 0;
+  width: 100%;
+  background: var(--primary);
+  padding: 0 1.6rem;
+  border: 1px solid var(--grey);
+  border-radius: var(--rad);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+  color: var(--white);
+}
+
+.search .searchSubmit {
+  position: absolute;
+  top: 0;
+  right: -1.8em;
+  width: var(--btn-width);
+  background: var(--red);
+  border-radius: 0 var(--rad) var(--rad) 0;
+}
+
+.search input:not(:-moz-placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+}
+
+.search input:not(:-ms-input-placeholder) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+}
+
+.search input:not(:placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+}
+.search input:not(:-moz-placeholder-shown) + button {
+  display: block;
+}
+.search input:not(:-ms-input-placeholder) + button {
+  display: block;
+}
+.search input:not(:placeholder-shown) + button {
+  display: block;
+}
+
+.search label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.searchTitle {
+  font-size: 1.4em;
+  font-weight: 100;
+  padding-left: 4em;
+  align-self: center;
+}

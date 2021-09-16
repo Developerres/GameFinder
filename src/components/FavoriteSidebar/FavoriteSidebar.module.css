@@ -1,0 +1,17 @@
+.favoriteGames {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+.favoriteGames img {
+  border-radius: 1em;
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--secondary);
+}
+
+.favoriteGames img:hover,
+a.selected .favoriteGames img {
+  box-shadow: 0px 0px 8px 4px var(--red);
+}

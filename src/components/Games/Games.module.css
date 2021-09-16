@@ -1,0 +1,53 @@
+.gameCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 1em 1em;
+}
+
+.gameCard {
+  border-radius: 0.6em;
+  background-color: var(--secondary);
+}
+
+.gameCard:hover {
+  box-shadow: 0px 0px 8px 4px var(--red);
+}
+
+.gameCardImage {
+  border-top-left-radius: 0.6em;
+  border-top-right-radius: 0.6em;
+
+  background: no-repeat center center;
+  width: 100%;
+  background-size: cover;
+}
+
+.gameCardInfo {
+  display: flex;
+  align-content: center;
+  padding: 1em;
+  justify-content: space-between;
+}
+
+.gamePlatforms img {
+  height: 1em;
+  margin: 0.2em;
+}
+
+.metacritic {
+  color: var(--grey);
+  font-size: 0.8em;
+}
+
+.gameCardGenre {
+  text-align: end;
+  padding: 1em;
+}
+
+.gameTitle {
+  font-size: 1.6em;
+  font-weight: 700;
+  padding: 0.4em 0.6em;
+  min-height: 3.5em;
+}

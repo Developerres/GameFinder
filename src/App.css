@@ -47,7 +47,7 @@
   background-color: var(--secondary);
 }
 
-.gameCards {
+/* .gameCards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -61,36 +61,36 @@
 
 .gameCard:hover {
   box-shadow: 0px 0px 8px 4px var(--red);
-}
+} */
 
-.gameCardImage {
+/* .gameCardImage {
   border-top-left-radius: 0.6em;
   border-top-right-radius: 0.6em;
 
   background: no-repeat center center;
   width: 100%;
   background-size: cover;
-}
+} */
 
-.gameCardInfo {
+/* .gameCardInfo {
   display: flex;
   align-content: center;
   padding: 1em;
   justify-content: space-between;
-}
+} */
 
-.gamePlatforms img {
+/* .gamePlatforms img {
   height: 1em;
   margin: 0.2em;
-}
+} */
 
-.gameRelease,
+/* .gameRelease,
 .gameCardGenre {
   color: var(--grey);
   font-size: 0.8em;
-}
+} */
 
-.gameCardGenre {
+/* .gameCardGenre {
   text-align: end;
   padding: 1em;
 }
@@ -100,9 +100,9 @@
   font-weight: 700;
   padding: 0.4em 0.6em;
   min-height: 3.5em;
-}
+} */
 
-.genreItem {
+/* .genreItem {
   margin: 1em 0;
   margin-left: 1em;
 
@@ -126,140 +126,14 @@
   display: flex;
   align-items: center;
   padding-left: 0.6em;
-}
-
-.search {
-  display: grid;
-  grid-template-columns: 0.5fr 0.5fr;
-  grid-template-rows: 1fr;
-  margin: 3em;
-}
-
-.searchTitle {
-  font-size: 1.4em;
-  font-weight: 100;
-  padding-left: 4em;
-}
+} */
 
 .pageTitle {
   font-size: 2em;
   font-weight: 700;
 }
 
-.favoriteGames {
-  display: flex;
-  justify-content: center;
-  margin: 1em;
-}
-
-.favoriteGames img {
-  border-radius: 1em;
-  width: 50px;
-  height: 50px;
-  border: 1px solid var(--secondary);
-}
-
-.favoriteGames img:hover,
-a.selected .favoriteGames img {
-  box-shadow: 0px 0px 8px 4px var(--red);
-}
-
-/*SEARCH*/
-
-:root {
-  --rad: 0.7rem;
-  --dur: 0.3s;
-  --color-dark: #2f2f2f;
-  --color-light: #fff;
-  --color-brand: #57bd84;
-
-  --btn-width: 2em;
-  --bez: cubic-bezier(0, 0, 0.43, 1.49);
-}
-
-.search form {
-  position: relative;
-  background: var(--red);
-  border-radius: var(--rad);
-}
-
-.search input,
-.search .searchSubmit {
-  height: 2em;
-  border: 0;
-  color: var(--color-dark);
-  font-size: 1.8em;
-}
-
-.search .searchSubmit img {
-  width: 1em;
-  position: absolute;
-  top: 30%;
-  right: 30%;
-}
-
-.search input[type="search"] {
-  outline: 0;
-  width: 100%;
-  background: var(--primary);
-  padding: 0 1.6rem;
-  border: 1px solid var(--grey);
-  border-radius: var(--rad);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  transition: all var(--dur) var(--bez);
-  transition-property: width, border-radius;
-  z-index: 1;
-  position: relative;
-  color: var(--white);
-}
-
-.search .searchSubmit {
-  /* display: none; */
-  position: absolute;
-  top: 0;
-  right: -1.8em;
-  width: var(--btn-width);
-  background: var(--red);
-  border-radius: 0 var(--rad) var(--rad) 0;
-}
-
-.search input:not(:-moz-placeholder-shown) {
-  border-radius: var(--rad) 0 0 var(--rad);
-  width: calc(100% - var(--btn-width));
-}
-
-.search input:not(:-ms-input-placeholder) {
-  border-radius: var(--rad) 0 0 var(--rad);
-  width: calc(100% - var(--btn-width));
-}
-
-.search input:not(:placeholder-shown) {
-  border-radius: var(--rad) 0 0 var(--rad);
-  width: calc(100% - var(--btn-width));
-}
-.search input:not(:-moz-placeholder-shown) + button {
-  display: block;
-}
-.search input:not(:-ms-input-placeholder) + button {
-  display: block;
-}
-.search input:not(:placeholder-shown) + button {
-  display: block;
-}
-
-.search label {
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0;
-  border: 0;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
-
-.mainMenuTitle {
+/* .mainMenuTitle {
   font-size: 1.2em;
   font-weight: 400;
   color: var(--grey);
@@ -290,9 +164,9 @@ a.selected .favoriteGames img {
 
 .genresList a.selected div {
   background: var(--secondary);
-}
+} */
 
-.gameContent {
+/* .gameContent {
   display: grid;
   grid-template-columns: 0.7fr 0.3fr;
   grid-template-rows: 1fr;
@@ -301,9 +175,9 @@ a.selected .favoriteGames img {
 
 .gameContent .pageTitle {
   font-size: 5em;
-}
+} */
 
-.whiteLabel {
+/* .whiteLabel {
   background-color: #f5f5f5;
   border-radius: 0.4em;
   color: var(--secondary);
@@ -313,24 +187,24 @@ a.selected .favoriteGames img {
 
 .flex {
   display: flex;
-}
+} */
 
-.metacriticLabel {
+/* .metacriticLabel {
   border: 0.1em solid var(--red);
   border-radius: 0.4em;
   padding: 0.7em;
   color: var(--red);
   margin: 0 0.4em;
-}
+} */
 
-.metacritic {
+/* .metacritic {
   margin-left: 1.5em;
-}
+} */
 
-.description p {
+/* .description p {
   margin: 1em 0;
-}
-
+} */
+/* 
 .gameInfoSidebar img {
   width: 100%;
 }
@@ -363,9 +237,9 @@ a.selected .favoriteGames img {
   background-color: var(--secondary);
   color: var(--grey);
   border-color: var(--primary);
-}
+} */
 
-.pagination {
+/* .pagination {
   display: flex;
   justify-content: center;
 }
@@ -383,4 +257,4 @@ a.selected .favoriteGames img {
 .pagination a.selected,
 .pagination a:hover {
   border: 1px solid var(--red);
-}
+} */

@@ -1,0 +1,58 @@
+.genreItem {
+  margin: 1em 0;
+  margin-left: 1em;
+
+  border-top-left-radius: 0.6em;
+  border-bottom-left-radius: 0.6em;
+  display: grid;
+  grid-template-columns: 0.25fr 0.75fr;
+  grid-template-rows: 1fr;
+  gap: 0em 0em;
+}
+
+.genreItem:hover {
+  background-color: var(--secondary);
+}
+
+.genreIcon {
+  border-radius: 0.6em;
+}
+
+.genreTitle {
+  display: flex;
+  align-items: center;
+  padding-left: 0.6em;
+}
+
+.mainMenuTitle {
+  font-size: 1.2em;
+  font-weight: 400;
+  color: var(--grey);
+  margin: 1em;
+}
+
+.mainMenuItems {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin: 1em;
+}
+
+.mainMenuItems a {
+  color: var(--grey);
+  text-decoration: none;
+}
+
+.mainMenuItems a.selected {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.mainMenuItems a:hover {
+  text-decoration: underline;
+}
+
+.genresList a.selected div {
+  background: var(--secondary);
+}

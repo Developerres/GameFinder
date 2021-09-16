@@ -5,7 +5,10 @@ import nintendo from "./../../assets/image/nintendo.svg";
 import mac from "./../../assets/image/mac.svg";
 import linux from "./../../assets/image/linux.svg";
 import android from "./../../assets/image/android.svg";
+import ios from "./../../assets/image/ios.svg";
+import web from "./../../assets/image/web.svg";
 import { NavLink } from "react-router-dom";
+import s from "./Games.module.css";
 
 const Games = ({ games, pagesCount, currentPage }) => {
   const images = {
@@ -16,6 +19,8 @@ const Games = ({ games, pagesCount, currentPage }) => {
     mac,
     linux,
     android,
+    ios,
+    web,
   };
 
   function getImageByKey(key) {
@@ -23,23 +28,23 @@ const Games = ({ games, pagesCount, currentPage }) => {
   }
 
   return (
-    <div className="gameCards">
+    <div className={s.gameCards}>
       {games.map((data) => (
         <NavLink
           to={`/game/${data.slug}`}
           activeClassName="selected"
           key={data.id}
         >
-          <div className="gameCard">
+          <div className={s.gameCard}>
             <div
-              className="gameCardImage"
+              className={s.gameCardImage}
               style={{
                 backgroundImage: `url(${data.background_image})`,
                 height: "280px",
               }}
             ></div>
-            <div className="gameCardInfo">
-              <div className="gamePlatforms">
+            <div className={s.gameCardInfo}>
+              <div className={s.gamePlatforms}>
                 {data.parent_platforms.map((p) => (
                   <img
                     key={p.platform.id}
@@ -49,14 +54,19 @@ const Games = ({ games, pagesCount, currentPage }) => {
                 ))}
               </div>
 
-              <div className="gameRelease">Metacritic: {data.metacritic}</div>
+              {data.metacritic ? (
+                <div className={s.metacritic}>
+                  Metacritic: {data.metacritic}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
-            <div className="gameTitle">{data.name}</div>
-            <div className="gameCardGenre">
+            <div className={s.gameTitle}>{data.name}</div>
+            <div className={s.gameCardGenre}>
               {data.genres.map((g) => (
                 <span key={g.id}> {g.name} </span>
               ))}
-              {/* {data.genres.map((g) => g.name).join(", ")} */}
             </div>
           </div>
         </NavLink>
