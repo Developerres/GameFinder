@@ -107,8 +107,9 @@
     grid-template-columns: 1fr;
     margin: 0.5em;
   }
-  .search div {
-    width: 90%;
+  .search form {
+    margin-bottom: 1em;
+    margin-right: calc(1em + var(--btn-width));
   }
   .searchTitle {
     padding: 0;
@@ -125,7 +126,8 @@
   }
 
   .search form {
-    width: 190px;
+    margin-bottom: 1em;
+    margin-right: calc(1em + var(--btn-width));
   }
   .searchTitle {
     padding: 0;
