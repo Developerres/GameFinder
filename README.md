@@ -6,4 +6,4 @@ Collect your favorite games in own private or public collection.
 
 📑 React 📑 Hooks 📑 Redux 📑 Module 📑 REST API 📑 Axios 📑 RWD
 
-#### Check the latest version 👉👉👉 [Games Finder](https://gamesfinder.netlify.app/)
+## Live Demo 👉👉👉 [Games Finder](https://gamesfinder.netlify.app/)
