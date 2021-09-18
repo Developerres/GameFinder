@@ -14,6 +14,7 @@ import ios from "./../../../assets/image/ios.svg";
 import web from "./../../../assets/image/web.svg";
 import Gallery from "react-grid-gallery";
 import s from "./Game.module.css";
+import Preloader from "../../Common/Preloader/Preloader";
 
 const Game = (props) => {
   const dispatch = useDispatch();
@@ -90,6 +91,7 @@ const Game = (props) => {
         }}
       >
         <div className={s.gameContent}>
+          {gameInfo.name === "" ? <Preloader /> : ""}
           <div>
             <div className={s.flex}>
               <div className={s.whiteLabel}>{gameInfo.released}</div>

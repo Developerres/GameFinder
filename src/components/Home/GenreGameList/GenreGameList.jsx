@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { rawgAPI } from "../../../api/api";
 import gamePerPage from "../../Common/Const/const";
 import Pagination from "../../Common/Pagination/Pagination";
+import Preloader from "../../Common/Preloader/Preloader";
 import Games from "../../Games/Games";
 
 const GenreGameList = (props) => {
@@ -26,6 +27,7 @@ const GenreGameList = (props) => {
         {genres}
         <span className="titleDot">.</span>
       </div>
+      {games.length === 0 ? <Preloader /> : ""}
       <Games games={games} />
       <Pagination
         currentPage={pageId}

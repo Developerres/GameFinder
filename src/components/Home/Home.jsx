@@ -6,6 +6,7 @@ import gamePerPage from "../Common/Const/const";
 import Pagination from "../Common/Pagination/Pagination";
 import { useDispatch } from "react-redux";
 import { searchGame } from "../../app/searchSlice";
+import Preloader from "../Common/Preloader/Preloader";
 
 const Home = ({ ordering, title, search, ...props }) => {
   const dispatch = useDispatch();
@@ -15,12 +16,11 @@ const Home = ({ ordering, title, search, ...props }) => {
   const pagesCount = Math.ceil(gamesCount / gamePerPage);
 
   useEffect(() => {
-    // let genres = props.match.params.genres || "";
-    // let ordering = props.match.params.ordering || "";
     const isOrdering = ordering || "";
 
     const fetchGames = async () => {
       const response = await rawgAPI.getGameListAPI(null, isOrdering, pageId);
+      response ? console.log("Resp>", response) : console.log("Nothing");
       setGameList(response.data.results);
       setGamesCount(response.data.count);
       dispatch(searchGame({ term: "" }));
@@ -33,6 +33,7 @@ const Home = ({ ordering, title, search, ...props }) => {
       <div className="pageTitle">
         {title}
         <span className="titleDot">.</span>
+        {games.length === 0 ? <Preloader /> : ""}
       </div>
       <Games games={games} currentPage={pageId} />
       <Pagination currentPage={pageId} path="games" pagesCount={pagesCount} />

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import Preloader from "../Common/Preloader/Preloader";
 import { rawgAPI } from "./../../api/api";
 import s from "./Menu.module.css";
 
@@ -53,6 +54,7 @@ const Menu = (props) => {
         genres<span className="titleDot">.</span>
       </div>
       <div className={s.genresList}>
+        {genres.length === 0 ? <Preloader /> : ""}
         {genres.map((data) => (
           <NavLink
             to={`/genre/${data.slug}`}
