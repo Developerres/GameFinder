@@ -11,10 +11,9 @@ export const rawgAPI = {
   async getGenresAPI() {
     try {
       const response = await instance.get(`genres?page_size=40&key=${API_KEY}`);
-
       return response;
     } catch (error) {
-      console.error(error);
+      console.error("ERROR catched", error);
     }
   },
 
@@ -29,7 +28,7 @@ export const rawgAPI = {
 
       return response;
     } catch (error) {
-      console.error(error);
+      console.error("ERROR catched", error);
     }
   },
 
@@ -39,7 +38,7 @@ export const rawgAPI = {
 
       return response;
     } catch (error) {
-      console.error(error);
+      console.error("ERROR catched", error);
     }
   },
 
@@ -51,7 +50,7 @@ export const rawgAPI = {
 
       return response;
     } catch (error) {
-      console.error(error);
+      console.error("ERROR catched", error);
     }
   },
 
@@ -63,7 +62,7 @@ export const rawgAPI = {
 
       return response;
     } catch (error) {
-      console.error(error);
+      console.error("ERROR catched", error);
     }
   },
 };

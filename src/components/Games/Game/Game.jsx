@@ -3,27 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { rawgAPI } from "../../../api/api";
 import { deleteFromFavorite, addToFavorite } from "../../../app/favoriteSlice";
-import pc from "./../../../assets/image/pc.svg";
-import playstation from "./../../../assets/image/playstation.svg";
-import xbox from "./../../../assets/image/xbox.svg";
-import nintendo from "./../../../assets/image/nintendo.svg";
-import mac from "./../../../assets/image/mac.svg";
-import linux from "./../../../assets/image/linux.svg";
-import android from "./../../../assets/image/android.svg";
-import ios from "./../../../assets/image/ios.svg";
-import web from "./../../../assets/image/web.svg";
 import Gallery from "react-grid-gallery";
 import s from "./Game.module.css";
 import Preloader from "../../Common/Preloader/Preloader";
+import { getImageByKey } from "../../../helpers/getImageByKey";
 
 const Game = (props) => {
   const dispatch = useDispatch();
 
   const [gameInfo, setGameInfo] = useState({
+    id: null,
     name: "",
     slug: "",
     description: "",
-    metacritic: "",
+    metacritic: null,
     released: "",
     background_image: "",
     dominant_color: "",
@@ -59,24 +52,8 @@ const Game = (props) => {
     thumbnailHeight: 112,
   }));
 
-  const images = {
-    pc,
-    playstation,
-    xbox,
-    nintendo,
-    mac,
-    linux,
-    android,
-    ios,
-    web,
-  };
-
-  function getImageByKey(key) {
-    return images[key];
-  }
-
   const games = useSelector((state) => state.favorite.games);
-  const isFavorite = games.find((el) => el.gameId === gameInfo.id);
+  const isFavorite = games.find((el) => el.id === gameInfo.id);
 
   return (
     <div
@@ -138,7 +115,7 @@ const Game = (props) => {
                   onClick={() =>
                     dispatch(
                       deleteFromFavorite({
-                        gameId: gameInfo.id,
+                        id: gameInfo.id,
                       })
                     )
                   }
@@ -148,22 +125,7 @@ const Game = (props) => {
               ) : (
                 <button
                   aria-label="Add to Favorite"
-                  onClick={() =>
-                    dispatch(
-                      addToFavorite({
-                        gameId: gameInfo.id,
-                        name: gameInfo.name,
-                        slug: gameInfo.slug,
-                        metacritic: Number(gameInfo.metacritic),
-                        released: gameInfo.released,
-                        background_image: gameInfo.background_image,
-                        parent_platforms: gameInfo.parent_platforms,
-                        genres: gameInfo.genres,
-                        tags: gameInfo.tags,
-                        description_raw: gameInfo.description_raw,
-                      })
-                    )
-                  }
+                  onClick={() => dispatch(addToFavorite(gameInfo))}
                 >
                   Add to Favorite
                 </button>

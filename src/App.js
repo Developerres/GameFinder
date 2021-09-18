@@ -18,7 +18,6 @@ function App() {
       <div className="container">
         <div className="sidebar">
           <Logo />
-
           <Menu />
         </div>
         <div className="content">
@@ -50,7 +49,6 @@ function App() {
           />
           <Route path="/searchresult" render={() => <SearchResult />} />
         </div>
-
         <div className="favorite">
           <FavoriteSidebar />
         </div>

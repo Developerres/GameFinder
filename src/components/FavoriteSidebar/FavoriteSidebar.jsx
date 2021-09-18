@@ -15,11 +15,7 @@ const FavoriteSidebar = () => {
   return (
     <>
       {favoriteGames.map((el) => (
-        <NavLink
-          to={`/game/${el.slug}`}
-          activeClassName="selected"
-          key={el.gameId}
-        >
+        <NavLink to={`/game/${el.slug}`} activeClassName="selected" key={el.id}>
           <div className={s.favoriteGames}>
             <img src={el.background_image} alt={el.name} title={el.name} />
           </div>

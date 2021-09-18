@@ -20,7 +20,7 @@ const Home = ({ ordering, title, search, ...props }) => {
 
     const fetchGames = async () => {
       const response = await rawgAPI.getGameListAPI(null, isOrdering, pageId);
-      response ? console.log("Resp>", response) : console.log("Nothing");
+
       setGameList(response.data.results);
       setGamesCount(response.data.count);
       dispatch(searchGame({ term: "" }));

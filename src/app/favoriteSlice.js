@@ -15,9 +15,7 @@ export const slice = createSlice({
   },
   reducers: {
     addToFavorite: (state, action) => {
-      const isFavorite = state.games.find(
-        (el) => el.gameId === action.payload.gameId
-      );
+      const isFavorite = state.games.find((el) => el.id === action.payload.id);
       if (isFavorite) return;
       state.games = [...state.games, action.payload];
       // Add to LocalStorage
@@ -28,9 +26,7 @@ export const slice = createSlice({
       localStorage.setItem("favorite", JSON.stringify(newFavArray));
     },
     deleteFromFavorite: (state, action) => {
-      const deleted = state.games.filter(
-        (el) => el.gameId !== action.payload.gameId
-      );
+      const deleted = state.games.filter((el) => el.id !== action.payload.id);
       state.games = deleted;
       localStorage.removeItem("favorite");
       localStorage.setItem("favorite", JSON.stringify(deleted));
